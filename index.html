@@ -1,0 +1,2231 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sicontri | Solución Integral Contable y Tributario en Medellín</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Soluciones contables, tributarias y revisoría fiscal para hacer crecer tu negocio en Medellín. Outsourcing contable, nómina electrónica, auditoría y asesoría comercial.">
+  <meta name="keywords" content="sicontri, contabilidad general medellin, revisoria fiscal medellin, declaracion de renta colombia, outsourcing contable, nomina electronica dian, constitucion de empresas s.a.s.">
+  <meta name="author" content="Sicontri">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Sicontri | Contabilidad y Tributaria en Medellín">
+  <meta property="og:description" content="Tu aliado estratégico en contabilidad, tributaria y revisoría fiscal para empresas y personas naturales en Colombia.">
+  <meta property="og:type" content="website">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="logo.svg">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome Icons CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    /* ============================================
+       DESIGN TOKENS
+    ============================================ */
+    :root {
+      /* Colors */
+      --navy:       #0B1F3A;
+      --navy-mid:   #122744;
+      --navy-light: #1A3558;
+      --teal:       #00B4D8;
+      --teal-dark:  #0096B7;
+      --teal-glow:  rgba(0, 180, 216, 0.15);
+      --gold:       #F5A623;
+      --white:      #FFFFFF;
+      --off-white:  #F7F9FC;
+      --gray-100:   #EEF1F7;
+      --gray-300:   #C7CFE0;
+      --gray-500:   #8A97B0;
+      --gray-700:   #4A5568;
+      --text-dark:  #1A202C;
+      --text-body:  #4A5568;
+      --green-ok:   #00C48C;
+      --red-warn:   #F76060;
+
+      /* Typography */
+      --font-display: 'Plus Jakarta Sans', sans-serif;
+      --font-body:    'Inter', sans-serif;
+
+      /* Spacing */
+      --section-py: 5rem;
+      --container:  1200px;
+      --radius-sm:  0.5rem;
+      --radius-md:  1rem;
+      --radius-lg:  1.5rem;
+      --radius-xl:  2rem;
+
+      /* Shadows */
+      --shadow-sm:  0 1px 3px rgba(0,0,0,.08);
+      --shadow-md:  0 4px 20px rgba(0,0,0,.1);
+      --shadow-lg:  0 12px 40px rgba(0,0,0,.14);
+      --shadow-teal: 0 8px 32px rgba(0,180,216,.25);
+
+      /* Transitions */
+      --ease: cubic-bezier(.4,0,.2,1);
+    }
+
+    /* ============================================
+       RESET & BASE
+    ============================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--text-body);
+      background: var(--white);
+      overflow-x: hidden;
+    }
+
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+
+    .container {
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* ============================================
+       SCROLL ANIMATIONS
+    ============================================ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity .6s var(--ease), transform .6s var(--ease);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+    .reveal-left {
+      opacity: 0;
+      transform: translateX(-30px);
+      transition: opacity .6s var(--ease), transform .6s var(--ease);
+    }
+    .reveal-left.visible { opacity: 1; transform: none; }
+    .reveal-right {
+      opacity: 0;
+      transform: translateX(30px);
+      transition: opacity .6s var(--ease), transform .6s var(--ease);
+    }
+    .reveal-right.visible { opacity: 1; transform: none; }
+    .delay-1 { transition-delay: .1s; }
+    .delay-2 { transition-delay: .2s; }
+    .delay-3 { transition-delay: .3s; }
+    .delay-4 { transition-delay: .4s; }
+
+    /* ============================================
+       HEADER / NAV
+    ============================================ */
+    #main-header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      background: transparent;
+      transition: background .35s var(--ease), box-shadow .35s var(--ease), padding .35s var(--ease);
+      padding: 1.25rem 0;
+    }
+    #main-header.scrolled {
+      background: rgba(11, 31, 58, 0.97);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 2px 20px rgba(0,0,0,.2);
+      padding: .75rem 0;
+    }
+
+    .nav-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo-link img { height: 44px; width: auto; }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: .25rem;
+    }
+
+    .nav-link {
+      font-family: var(--font-display);
+      font-size: .875rem;
+      font-weight: 500;
+      color: rgba(255,255,255,.85);
+      padding: .5rem .85rem;
+      border-radius: var(--radius-sm);
+      transition: color .2s, background .2s;
+    }
+    .nav-link:hover, .nav-link.active {
+      color: var(--teal);
+      background: rgba(0,180,216,.1);
+    }
+
+    .btn-phone {
+      font-family: var(--font-display);
+      font-size: .8rem;
+      font-weight: 600;
+      color: var(--navy);
+      background: var(--teal);
+      padding: .5rem 1rem;
+      border-radius: 2rem;
+      display: flex;
+      align-items: center;
+      gap: .4rem;
+      transition: background .2s, transform .2s, box-shadow .2s;
+      white-space: nowrap;
+    }
+    .btn-phone:hover {
+      background: var(--teal-dark);
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-teal);
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--white);
+      font-size: 1.4rem;
+      cursor: pointer;
+    }
+
+    /* ============================================
+       HERO
+    ============================================ */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 55%, #0d2a4a 100%);
+      position: relative;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    /* Decorative background elements */
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 60% at 70% 40%, rgba(0,180,216,.12) 0%, transparent 70%),
+                  radial-gradient(ellipse 40% 40% at 20% 70%, rgba(0,150,183,.08) 0%, transparent 60%);
+    }
+
+    .hero-grid-lines {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(0,180,216,.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,180,216,.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+
+    .hero-grid {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      padding: 8rem 0 5rem;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      background: rgba(0,180,216,.15);
+      border: 1px solid rgba(0,180,216,.35);
+      color: var(--teal);
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      padding: .4rem 1rem;
+      border-radius: 2rem;
+      margin-bottom: 1.5rem;
+    }
+    .hero-eyebrow span { width: 6px; height: 6px; border-radius: 50%; background: var(--teal); display: block; animation: pulse-dot 1.8s ease-in-out infinite; }
+    @keyframes pulse-dot { 0%,100% { opacity: 1; transform: scale(1); } 50% { opacity: .5; transform: scale(.7); } }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+      font-weight: 800;
+      line-height: 1.15;
+      color: var(--white);
+      margin-bottom: 1.25rem;
+      letter-spacing: -.02em;
+    }
+    .hero-title em {
+      font-style: normal;
+      color: var(--teal);
+    }
+
+    .hero-description {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: rgba(255,255,255,.72);
+      max-width: 480px;
+      margin-bottom: 2rem;
+    }
+
+    .hero-ctas {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 2.5rem;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      background: var(--teal);
+      color: var(--navy);
+      font-family: var(--font-display);
+      font-size: .9rem;
+      font-weight: 700;
+      padding: .8rem 1.6rem;
+      border-radius: 2rem;
+      transition: background .2s, transform .2s, box-shadow .2s;
+    }
+    .btn-primary:hover {
+      background: var(--teal-dark);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-teal);
+    }
+
+    .btn-whatsapp {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.2);
+      color: var(--white);
+      font-family: var(--font-display);
+      font-size: .9rem;
+      font-weight: 600;
+      padding: .8rem 1.6rem;
+      border-radius: 2rem;
+      transition: background .2s, border-color .2s;
+    }
+    .btn-whatsapp:hover {
+      background: rgba(37,211,102,.15);
+      border-color: rgba(37,211,102,.5);
+      color: #25d366;
+    }
+    .btn-whatsapp .fa-whatsapp { font-size: 1.1rem; }
+
+    .hero-trust-signals {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .75rem 1.5rem;
+    }
+    .trust-item {
+      font-size: .8rem;
+      color: rgba(255,255,255,.65);
+      display: flex;
+      align-items: center;
+      gap: .4rem;
+    }
+    .trust-item i { color: var(--teal); font-size: .75rem; }
+
+    /* Hero visual / card */
+    .hero-visual {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .hero-image-card {
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(0,180,216,.25);
+      border-radius: var(--radius-xl);
+      padding: 2rem;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 24px 64px rgba(0,0,0,.3), 0 0 0 1px rgba(0,180,216,.1);
+      width: 100%;
+      max-width: 460px;
+      aspect-ratio: 4/3;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero-slideshow { position: relative; width: 100%; height: 100%; }
+    .hero-slide {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: var(--radius-lg);
+      opacity: 0;
+      transition: opacity .8s var(--ease);
+    }
+    .hero-slide.active { opacity: 1; }
+
+    /* Floating stat pills */
+    .hero-stat-pill {
+      position: absolute;
+      background: white;
+      border-radius: var(--radius-md);
+      padding: .75rem 1.1rem;
+      box-shadow: var(--shadow-lg);
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+      animation: float 5s ease-in-out infinite;
+    }
+    .hero-stat-pill.pill-1 { bottom: -1rem; left: -2rem; animation-delay: 0s; }
+    .hero-stat-pill.pill-2 { top: -1rem; right: -1.5rem; animation-delay: 1.5s; }
+    .hero-stat-pill .pill-icon { width: 36px; height: 36px; border-radius: .6rem; display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; }
+    .pill-1 .pill-icon { background: rgba(0,196,140,.15); color: var(--green-ok); }
+    .pill-2 .pill-icon { background: rgba(0,180,216,.15); color: var(--teal); }
+    .hero-stat-pill .pill-text strong { display: block; font-family: var(--font-display); font-size: .95rem; font-weight: 700; color: var(--text-dark); line-height: 1; }
+    .hero-stat-pill .pill-text span { font-size: .7rem; color: var(--gray-500); }
+    @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+
+    /* ============================================
+       STATS BAND
+    ============================================ */
+    .stats-band {
+      background: var(--navy);
+      padding: 2.5rem 0;
+      border-top: 1px solid rgba(0,180,216,.2);
+      border-bottom: 1px solid rgba(0,180,216,.2);
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+    }
+    .stat-item {
+      text-align: center;
+      padding: 1rem;
+    }
+    .stat-item + .stat-item {
+      border-left: 1px solid rgba(255,255,255,.1);
+    }
+    .stat-number {
+      font-family: var(--font-display);
+      font-size: 2.4rem;
+      font-weight: 800;
+      color: var(--teal);
+      line-height: 1;
+      margin-bottom: .3rem;
+    }
+    .stat-label {
+      font-size: .8rem;
+      color: rgba(255,255,255,.6);
+      font-weight: 500;
+      letter-spacing: .03em;
+    }
+
+    /* ============================================
+       MARQUEE BANNER
+    ============================================ */
+    .marquee-banner {
+      background: var(--off-white);
+      border-bottom: 1px solid var(--gray-100);
+      overflow: hidden;
+      padding: 1rem 0;
+    }
+    .marquee-track {
+      display: flex;
+      width: max-content;
+      animation: marquee 28s linear infinite;
+      gap: 0;
+    }
+    .marquee-track:hover { animation-play-state: paused; }
+    @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+    .marquee-slide {
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+      padding: .5rem 2rem;
+      border-right: 1px solid var(--gray-100);
+      white-space: nowrap;
+    }
+    .marquee-slide img {
+      width: 32px;
+      height: 32px;
+      object-fit: contain;
+      opacity: .75;
+      border-radius: .35rem;
+    }
+    .marquee-slide span {
+      font-size: .8rem;
+      font-weight: 600;
+      color: var(--gray-700);
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+
+    /* ============================================
+       SECTION COMMON STYLES
+    ============================================ */
+    .section-py { padding: var(--section-py) 0; }
+
+    .section-header {
+      margin-bottom: 3rem;
+      text-align: center;
+    }
+    .sub-label {
+      display: inline-block;
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--teal-dark);
+      margin-bottom: .75rem;
+    }
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      font-weight: 800;
+      color: var(--text-dark);
+      line-height: 1.2;
+      letter-spacing: -.02em;
+    }
+    .section-title em { font-style: normal; color: var(--teal-dark); }
+    .section-desc {
+      margin-top: .75rem;
+      font-size: 1rem;
+      color: var(--gray-500);
+      max-width: 540px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* ============================================
+       SERVICES SECTION
+    ============================================ */
+    #servicios { background: var(--off-white); }
+
+    .services-tabs-container { margin-top: 2rem; }
+    .services-tabs {
+      display: flex;
+      gap: .5rem;
+      justify-content: center;
+      margin-bottom: 2.5rem;
+      background: var(--gray-100);
+      border-radius: 2rem;
+      padding: .35rem;
+      width: fit-content;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .tab-btn {
+      font-family: var(--font-display);
+      font-size: .875rem;
+      font-weight: 600;
+      color: var(--gray-700);
+      background: none;
+      border: none;
+      padding: .65rem 1.4rem;
+      border-radius: 2rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      transition: background .2s, color .2s, box-shadow .2s;
+    }
+    .tab-btn.active {
+      background: var(--white);
+      color: var(--navy);
+      box-shadow: var(--shadow-md);
+    }
+
+    .services-panel { display: none; }
+    .services-panel.active { display: block; }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+    .services-grid.two-cols {
+      grid-template-columns: repeat(2, 1fr);
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    .service-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 1.75rem;
+      border: 1px solid var(--gray-100);
+      transition: transform .3s var(--ease), box-shadow .3s var(--ease), border-color .3s;
+      position: relative;
+      overflow: hidden;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--teal), var(--teal-dark));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .3s var(--ease);
+    }
+    .service-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); border-color: rgba(0,180,216,.2); }
+    .service-card:hover::before { transform: scaleX(1); }
+
+    .service-card-icon {
+      width: 52px; height: 52px;
+      background: var(--teal-glow);
+      border-radius: var(--radius-md);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem;
+      color: var(--teal-dark);
+      margin-bottom: 1.1rem;
+    }
+    .service-card h3 {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: .6rem;
+    }
+    .service-card > p {
+      font-size: .875rem;
+      color: var(--gray-500);
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+    .service-bullets {
+      margin-bottom: 1.25rem;
+    }
+    .service-bullets li {
+      font-size: .82rem;
+      color: var(--text-body);
+      padding: .3rem 0;
+      padding-left: 1.1rem;
+      position: relative;
+      line-height: 1.5;
+    }
+    .service-bullets li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: .65rem;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--teal);
+    }
+    .service-bullets li strong { color: var(--text-dark); font-weight: 600; }
+
+    .service-link {
+      font-size: .82rem;
+      font-weight: 600;
+      color: var(--teal-dark);
+      display: inline-flex;
+      align-items: center;
+      gap: .35rem;
+      transition: gap .2s;
+    }
+    .service-link:hover { gap: .6rem; }
+
+    /* ============================================
+       SIMULATOR SECTION
+    ============================================ */
+    #simulador { background: var(--white); }
+
+    .simulator-card {
+      max-width: 720px;
+      margin: 0 auto;
+      background: var(--white);
+      border: 1px solid var(--gray-100);
+      border-radius: var(--radius-xl);
+      padding: 2.5rem;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .sim-stepper {
+      display: flex;
+      align-items: center;
+      position: relative;
+      margin-bottom: 2.5rem;
+    }
+    .sim-stepper-progress {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      height: 2px;
+      background: linear-gradient(90deg, var(--teal), var(--teal-dark));
+      transition: width .4s var(--ease);
+      z-index: 0;
+    }
+    .step-node {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: var(--gray-100);
+      color: var(--gray-500);
+      font-size: .8rem;
+      font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      position: relative;
+      z-index: 1;
+      margin: 0 auto;
+      flex: 1;
+      transition: background .3s, color .3s, box-shadow .3s;
+      border: 2px solid var(--gray-100);
+    }
+    .step-node.active, .step-node.done {
+      background: var(--teal);
+      color: var(--navy);
+      border-color: var(--teal);
+      box-shadow: 0 0 0 4px var(--teal-glow);
+    }
+
+    .sim-step-content { display: none; }
+    .sim-step-content.active { display: block; }
+
+    .sim-step-title {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 1.5rem;
+    }
+
+    .sim-form-group { margin-bottom: 1rem; }
+    .sim-label {
+      display: block;
+      font-size: .875rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: .6rem;
+    }
+    .sim-label span {
+      font-weight: 400;
+      color: var(--gray-500);
+      display: block;
+      margin-top: .2rem;
+      font-size: .8rem;
+    }
+
+    .input-currency-wrapper {
+      display: flex;
+      align-items: center;
+      background: var(--off-white);
+      border: 1.5px solid var(--gray-100);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      transition: border-color .2s, box-shadow .2s;
+    }
+    .input-currency-wrapper:focus-within {
+      border-color: var(--teal);
+      box-shadow: 0 0 0 3px var(--teal-glow);
+    }
+    .currency-symbol {
+      padding: 0 1rem;
+      color: var(--gray-500);
+      font-weight: 600;
+      font-size: 1rem;
+      user-select: none;
+    }
+    .sim-input {
+      flex: 1;
+      border: none;
+      background: transparent;
+      padding: .875rem .5rem .875rem 0;
+      font-size: 1rem;
+      font-family: var(--font-body);
+      color: var(--text-dark);
+      outline: none;
+    }
+
+    .sim-year-selector {
+      display: flex;
+      gap: 1rem;
+    }
+    .sim-option-card {
+      flex: 1;
+      background: var(--off-white);
+      border: 2px solid var(--gray-100);
+      border-radius: var(--radius-md);
+      padding: 1.25rem;
+      text-align: center;
+      cursor: pointer;
+      transition: border-color .2s, box-shadow .2s, background .2s;
+    }
+    .sim-option-card:hover { border-color: var(--teal); }
+    .sim-option-card.selected {
+      background: var(--teal-glow);
+      border-color: var(--teal);
+      box-shadow: 0 0 0 3px var(--teal-glow);
+    }
+    .sim-option-card h3 { font-family: var(--font-display); font-size: 1.5rem; font-weight: 800; color: var(--text-dark); margin-bottom: .3rem; }
+    .sim-option-card p { font-size: .8rem; color: var(--gray-500); }
+
+    .sim-radio-list { display: flex; flex-direction: column; gap: .75rem; }
+    .radio-item {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+      background: var(--off-white);
+      border: 2px solid var(--gray-100);
+      border-radius: var(--radius-md);
+      padding: 1rem 1.25rem;
+      cursor: pointer;
+      transition: border-color .2s, background .2s;
+    }
+    .radio-item input[type="radio"] { accent-color: var(--teal); width: 18px; height: 18px; }
+    .radio-item.selected { border-color: var(--teal); background: var(--teal-glow); }
+    .radio-text { font-size: .9rem; color: var(--text-dark); font-weight: 500; }
+
+    /* Sim result */
+    .sim-result-box { text-align: center; }
+    .result-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 800;
+      padding: .7rem 1.75rem;
+      border-radius: 2rem;
+      margin-bottom: 1rem;
+    }
+    .result-badge.obligado { background: rgba(247,96,96,.1); color: var(--red-warn); }
+    .result-badge.no-obligado { background: rgba(0,196,140,.1); color: var(--green-ok); }
+    .result-explanation { color: var(--gray-700); font-size: .95rem; line-height: 1.6; margin-bottom: 1.5rem; max-width: 500px; margin-left: auto; margin-right: auto; }
+
+    .result-details-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 1.5rem;
+      font-size: .85rem;
+    }
+    .result-details-table th {
+      background: var(--navy);
+      color: var(--white);
+      padding: .65rem 1rem;
+      text-align: left;
+      font-weight: 600;
+      font-size: .78rem;
+    }
+    .result-details-table th:first-child { border-radius: .5rem 0 0 .5rem; }
+    .result-details-table th:last-child { border-radius: 0 .5rem .5rem 0; }
+    .result-details-table td { padding: .65rem 1rem; border-bottom: 1px solid var(--gray-100); color: var(--text-body); }
+    .result-details-table td .badge-ok { color: var(--green-ok); font-weight: 600; }
+    .result-details-table td .badge-fail { color: var(--red-warn); font-weight: 600; }
+
+    .btn-whatsapp-result {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      background: #25d366;
+      color: var(--white);
+      font-weight: 700;
+      font-family: var(--font-display);
+      padding: .85rem 1.75rem;
+      border-radius: 2rem;
+      transition: background .2s, transform .2s;
+    }
+    .btn-whatsapp-result:hover { background: #1fbb59; transform: translateY(-2px); }
+
+    .sim-footer-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--gray-100);
+    }
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      background: var(--off-white);
+      border: none;
+      color: var(--gray-700);
+      font-family: var(--font-display);
+      font-size: .9rem;
+      font-weight: 600;
+      padding: .75rem 1.5rem;
+      border-radius: 2rem;
+      cursor: pointer;
+      transition: background .2s;
+    }
+    .btn-secondary:hover { background: var(--gray-100); }
+
+    /* ============================================
+       WHY US / NOSOTROS
+    ============================================ */
+    #nosotros { background: var(--navy); overflow: hidden; }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      padding: var(--section-py) 0;
+    }
+    .why-content .sub-label { color: var(--teal); }
+    .why-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.2;
+      letter-spacing: -.02em;
+      margin-bottom: 1rem;
+    }
+    .why-title em { font-style: normal; color: var(--teal); }
+    .why-desc { color: rgba(255,255,255,.65); font-size: 1rem; line-height: 1.7; margin-bottom: 2rem; }
+
+    .why-checklist { display: flex; flex-direction: column; gap: .75rem; }
+    .why-checklist li {
+      display: flex;
+      align-items: flex-start;
+      gap: .85rem;
+      color: rgba(255,255,255,.8);
+      font-size: .9rem;
+      line-height: 1.5;
+    }
+    .why-checklist li i {
+      color: var(--teal);
+      margin-top: .15rem;
+      flex-shrink: 0;
+      font-size: .85rem;
+    }
+
+    .why-image-block {
+      position: relative;
+    }
+    .why-image-block img {
+      border-radius: var(--radius-xl);
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(.9) saturate(1.1);
+      box-shadow: 0 24px 64px rgba(0,0,0,.4);
+    }
+    .why-image-block::before {
+      content: '';
+      position: absolute;
+      inset: -2px;
+      border-radius: calc(var(--radius-xl) + 2px);
+      background: linear-gradient(135deg, var(--teal), transparent 60%);
+      z-index: -1;
+      opacity: .5;
+    }
+
+    /* ============================================
+       TESTIMONIALS
+    ============================================ */
+    .section-testimonials { background: var(--off-white); }
+
+    .testimonials-track-wrapper {
+      overflow: hidden;
+      position: relative;
+    }
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+
+    .testimonial-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 1.75rem;
+      border: 1px solid var(--gray-100);
+      transition: transform .3s, box-shadow .3s;
+    }
+    .testimonial-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+
+    .quote-icon { color: var(--teal); font-size: 1.5rem; margin-bottom: .75rem; }
+    .stars { color: var(--gold); font-size: .85rem; margin-bottom: 1rem; display: flex; gap: .15rem; }
+    .testimonial-text { font-size: .9rem; color: var(--text-body); line-height: 1.7; font-style: italic; margin-bottom: 1.25rem; }
+
+    .testimonial-author { display: flex; align-items: center; gap: .75rem; }
+    .author-avatar {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--teal), var(--navy));
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .avatar-fallback { font-size: .78rem; font-weight: 700; color: var(--white); }
+    .author-info h4 { font-family: var(--font-display); font-size: .9rem; font-weight: 700; color: var(--text-dark); }
+    .author-info p { font-size: .78rem; color: var(--gray-500); }
+
+    .slider-arrows { display: flex; gap: .5rem; justify-content: center; margin-top: 2rem; }
+    .slider-arrow {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: var(--white);
+      border: 1px solid var(--gray-100);
+      color: var(--navy);
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      font-size: .85rem;
+      transition: background .2s, color .2s, border-color .2s;
+    }
+    .slider-arrow:hover { background: var(--teal); color: var(--white); border-color: var(--teal); }
+
+    /* ============================================
+       BLOG
+    ============================================ */
+    #blog { background: var(--white); }
+
+    .blog-section-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 2.5rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .btn-view-all {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      font-size: .85rem;
+      font-weight: 600;
+      color: var(--teal-dark);
+      border-bottom: 1px solid currentColor;
+      padding-bottom: 1px;
+      transition: gap .2s;
+    }
+    .btn-view-all:hover { gap: .65rem; }
+
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.25rem;
+    }
+    .blog-card {
+      background: var(--off-white);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--gray-100);
+      transition: transform .3s, box-shadow .3s;
+    }
+    .blog-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+    .blog-card-image { aspect-ratio: 16/9; overflow: hidden; }
+    .blog-card-image img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s; }
+    .blog-card:hover .blog-card-image img { transform: scale(1.05); }
+    .blog-card-body { padding: 1.25rem; }
+    .blog-date { font-size: .75rem; color: var(--gray-500); margin-bottom: .5rem; display: block; }
+    .blog-card-body h3 { font-family: var(--font-display); font-size: .95rem; font-weight: 700; color: var(--text-dark); margin-bottom: .85rem; line-height: 1.4; }
+    .blog-read-more {
+      font-size: .8rem;
+      font-weight: 600;
+      color: var(--teal-dark);
+      display: inline-flex;
+      align-items: center;
+      gap: .35rem;
+      transition: gap .2s;
+    }
+    .blog-read-more:hover { gap: .6rem; }
+
+    /* Blog Modal */
+    .blog-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.65);
+      backdrop-filter: blur(6px);
+      z-index: 2000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+    .blog-modal.open { display: flex; }
+    .blog-modal-content {
+      background: var(--white);
+      border-radius: var(--radius-xl);
+      max-width: 700px;
+      width: 100%;
+      max-height: 85vh;
+      overflow-y: auto;
+      position: relative;
+      box-shadow: var(--shadow-lg);
+      padding: 2.5rem;
+    }
+    .blog-modal-close {
+      position: absolute;
+      top: 1rem; right: 1rem;
+      background: var(--off-white);
+      border: none;
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      color: var(--gray-700);
+      font-size: .9rem;
+      transition: background .2s;
+    }
+    .blog-modal-close:hover { background: var(--gray-100); }
+
+    /* ============================================
+       CONTACT SECTION
+    ============================================ */
+    #contacto {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+      padding: var(--section-py) 0;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr 1fr;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    .contact-details .sub-label { color: var(--teal); }
+    .contact-title {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+    }
+    .contact-title em { font-style: normal; color: var(--teal); }
+
+    .contact-info-list { display: flex; flex-direction: column; gap: 1rem; }
+    .contact-info-list li {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+      color: rgba(255,255,255,.75);
+      font-size: .9rem;
+    }
+    .contact-info-list i {
+      width: 36px; height: 36px;
+      background: rgba(0,180,216,.15);
+      border-radius: .6rem;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--teal);
+      flex-shrink: 0;
+      font-size: .9rem;
+    }
+
+    /* Contact Form */
+    .contact-form-card {
+      background: var(--white);
+      border-radius: var(--radius-xl);
+      padding: 2rem;
+      box-shadow: var(--shadow-lg);
+    }
+    .contact-form-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 1.25rem;
+    }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: .75rem; margin-bottom: .75rem; }
+    .form-row.full { grid-template-columns: 1fr; }
+    .form-input {
+      width: 100%;
+      background: var(--off-white);
+      border: 1.5px solid var(--gray-100);
+      border-radius: var(--radius-md);
+      padding: .75rem 1rem;
+      font-family: var(--font-body);
+      font-size: .875rem;
+      color: var(--text-dark);
+      outline: none;
+      transition: border-color .2s, box-shadow .2s;
+    }
+    .form-input:focus { border-color: var(--teal); box-shadow: 0 0 0 3px var(--teal-glow); }
+    .form-input::placeholder { color: var(--gray-300); }
+    textarea.form-input { resize: vertical; min-height: 100px; }
+    select.form-input { cursor: pointer; }
+
+    .btn-submit {
+      width: 100%;
+      background: linear-gradient(135deg, var(--teal), var(--teal-dark));
+      color: var(--navy);
+      font-family: var(--font-display);
+      font-size: .95rem;
+      font-weight: 700;
+      border: none;
+      border-radius: 2rem;
+      padding: .9rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: .5rem;
+      transition: transform .2s, box-shadow .2s;
+      margin-top: 1rem;
+    }
+    .btn-submit:hover { transform: translateY(-2px); box-shadow: var(--shadow-teal); }
+
+    /* WhatsApp card */
+    .contact-wa-card {
+      background: rgba(37,211,102,.08);
+      border: 1px solid rgba(37,211,102,.25);
+      border-radius: var(--radius-xl);
+      padding: 2rem;
+      text-align: center;
+    }
+    .wa-icon-lg { font-size: 3rem; color: #25d366; margin-bottom: 1rem; }
+    .contact-wa-card h3 { font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; color: var(--white); margin-bottom: .5rem; }
+    .contact-wa-card p { font-size: .875rem; color: rgba(255,255,255,.65); margin-bottom: 1.5rem; line-height: 1.6; }
+    .btn-wa-action {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      background: #25d366;
+      color: var(--white);
+      font-weight: 700;
+      font-family: var(--font-display);
+      font-size: .9rem;
+      padding: .8rem 1.5rem;
+      border-radius: 2rem;
+      transition: background .2s, transform .2s;
+    }
+    .btn-wa-action:hover { background: #1fbb59; transform: translateY(-2px); }
+
+    /* ============================================
+       TOAST
+    ============================================ */
+    .toast-msg {
+      position: fixed;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%) translateY(120%);
+      background: var(--green-ok);
+      color: var(--white);
+      font-weight: 600;
+      font-size: .9rem;
+      padding: .85rem 1.75rem;
+      border-radius: 2rem;
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      z-index: 9999;
+      box-shadow: var(--shadow-lg);
+      transition: transform .35s var(--ease);
+    }
+    .toast-msg.show { transform: translateX(-50%) translateY(0); }
+
+    /* ============================================
+       FOOTER
+    ============================================ */
+    footer {
+      background: #070F1E;
+      padding: 3rem 0 1.5rem;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 2.5rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid rgba(255,255,255,.06);
+      margin-bottom: 1.5rem;
+    }
+    .footer-brand p { font-size: .875rem; color: rgba(255,255,255,.45); line-height: 1.7; margin-top: .5rem; }
+    .footer-title { font-family: var(--font-display); font-size: .75rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.35); margin-bottom: 1rem; }
+    .footer-links { display: flex; flex-direction: column; gap: .6rem; }
+    .footer-links a { font-size: .875rem; color: rgba(255,255,255,.55); transition: color .2s; }
+    .footer-links a:hover { color: var(--teal); }
+    .footer-socials { display: flex; gap: .6rem; }
+    .footer-socials a {
+      width: 38px; height: 38px;
+      border-radius: .6rem;
+      background: rgba(255,255,255,.06);
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,.55);
+      font-size: .9rem;
+      transition: background .2s, color .2s;
+    }
+    .footer-socials a:hover { background: var(--teal); color: var(--navy); }
+    .footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: .5rem; }
+    .footer-bottom p { font-size: .8rem; color: rgba(255,255,255,.3); }
+    .footer-bottom-links { display: flex; gap: .75rem; }
+    .footer-bottom-links a { font-size: .8rem; color: rgba(255,255,255,.3); transition: color .2s; }
+    .footer-bottom-links a:hover { color: var(--teal); }
+
+    /* ============================================
+       WHATSAPP STICKY
+    ============================================ */
+    .whatsapp-sticky {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 56px; height: 56px;
+      background: #25d366;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem;
+      color: var(--white);
+      z-index: 900;
+      box-shadow: 0 4px 20px rgba(37,211,102,.4);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .whatsapp-sticky:hover { transform: scale(1.1); box-shadow: 0 8px 32px rgba(37,211,102,.5); }
+    .whatsapp-sticky::after {
+      content: '';
+      position: absolute;
+      inset: -4px;
+      border-radius: 50%;
+      border: 2px solid rgba(37,211,102,.4);
+      animation: ping 2s ease-out infinite;
+    }
+    @keyframes ping { 0% { transform: scale(1); opacity: .7; } 100% { transform: scale(1.6); opacity: 0; } }
+
+    /* ============================================
+       RESPONSIVE
+    ============================================ */
+    @media (max-width: 1024px) {
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .contact-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+      .blog-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .stat-item + .stat-item { border-left: none; }
+      .stats-grid .stat-item:nth-child(odd) { border-right: 1px solid rgba(255,255,255,.1); }
+    }
+
+    @media (max-width: 768px) {
+      .hero-grid { grid-template-columns: 1fr; padding: 7rem 0 4rem; gap: 2.5rem; }
+      .hero-visual { display: none; }
+      .why-grid { grid-template-columns: 1fr; }
+      .why-image-block { order: -1; height: 280px; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .blog-grid { grid-template-columns: 1fr; }
+      .blog-section-header { flex-direction: column; align-items: flex-start; }
+      .services-grid { grid-template-columns: 1fr; }
+      .services-grid.two-cols { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .services-tabs { flex-direction: column; width: 100%; border-radius: 1rem; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .nav-menu { display: none; }
+      .nav-menu.open {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 0; left: 0; right: 0;
+        height: 100vh;
+        background: var(--navy);
+        justify-content: center;
+        align-items: center;
+        gap: 1.5rem;
+        z-index: 999;
+      }
+      .nav-menu.open .nav-link { font-size: 1.3rem; }
+      .menu-toggle { display: block; position: relative; z-index: 1000; }
+    }
+
+    @media (max-width: 480px) {
+      .stats-grid { grid-template-columns: 1fr 1fr; }
+      .hero-title { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER / NAVIGATION -->
+  <header id="main-header">
+    <div class="container nav-container">
+      <a href="#inicio" class="logo-link">
+        <img src="logo.svg" alt="Sicontri Logo">
+      </a>
+      
+      <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú">
+        <i class="fa-solid fa-bars-staggered"></i>
+      </button>
+
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="#inicio" class="nav-link active">Inicio</a></li>
+        <li><a href="#nosotros" class="nav-link">Nosotros</a></li>
+        <li><a href="#servicios" class="nav-link">Servicios</a></li>
+        <li><a href="#simulador" class="nav-link">Simulador</a></li>
+        <li><a href="#blog" class="nav-link">Blog</a></li>
+        <li><a href="#contacto" class="nav-link">Contacto</a></li>
+        <li>
+          <a href="tel:+573001234567" class="btn-phone">
+            <i class="fa-solid fa-phone"></i> +57 300 123 4567
+          </a>
+        </li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section id="inicio" class="hero">
+    <div class="hero-grid-lines"></div>
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="hero-eyebrow">
+          <span></span> Asesoría Contable y Tributaria · Medellín
+        </div>
+        <h1 class="hero-title">
+          Soluciones que impulsan el <em>crecimiento</em> de tu negocio
+        </h1>
+        <p class="hero-description">
+          Te acompañamos en cada decisión financiera para que tu empresa cumpla, optimice y crezca con tranquilidad.
+        </p>
+        <div class="hero-ctas">
+          <a href="#contacto" class="btn-primary">
+            Solicitar asesoría <i class="fa-solid fa-arrow-right"></i>
+          </a>
+          <a href="https://wa.me/573001234567?text=Hola%20Sicontri,%20quiero%20solicitar%20asesor%C3%ADa%20contable%20para%20mi%20negocio." target="_blank" rel="noopener noreferrer" class="btn-whatsapp">
+            <i class="fa-brands fa-whatsapp"></i> Escríbenos por WhatsApp
+          </a>
+        </div>
+        
+        <div class="hero-trust-signals">
+          <div class="trust-item"><i class="fa-solid fa-circle-check"></i> Atención personalizada</div>
+          <div class="trust-item"><i class="fa-solid fa-circle-check"></i> Confidencialidad y seguridad</div>
+          <div class="trust-item"><i class="fa-solid fa-circle-check"></i> Experiencia y profesionalismo</div>
+          <div class="trust-item"><i class="fa-solid fa-circle-check"></i> Respaldo y cumplimiento</div>
+        </div>
+      </div>
+      
+      <div class="hero-visual">
+        <div style="position:relative;">
+          <div class="hero-image-card">
+            <div class="hero-slideshow">
+              <img src="images/outsourcing.png" alt="Outsourcing contable" class="hero-slide active">
+              <img src="images/optimization.png" alt="Optimización administrativa" class="hero-slide">
+              <img src="images/billing.png" alt="Facturación electrónica" class="hero-slide">
+              <img src="images/taxes.png" alt="Impuestos DIAN" class="hero-slide">
+            </div>
+          </div>
+          <!-- Floating stat pills -->
+          <div class="hero-stat-pill pill-1">
+            <div class="pill-icon"><i class="fa-solid fa-shield-check"></i></div>
+            <div class="pill-text">
+              <strong>100% Cumplimiento</strong>
+              <span>Declaraciones a tiempo</span>
+            </div>
+          </div>
+          <div class="hero-stat-pill pill-2">
+            <div class="pill-icon"><i class="fa-solid fa-users"></i></div>
+            <div class="pill-text">
+              <strong>+200 Clientes</strong>
+              <span>Empresas satisfechas</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS BAND -->
+  <div class="stats-band">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item reveal">
+          <div class="stat-number" data-target="200">0+</div>
+          <div class="stat-label">Clientes activos</div>
+        </div>
+        <div class="stat-item reveal delay-1">
+          <div class="stat-number" data-target="10">0+</div>
+          <div class="stat-label">Años de experiencia</div>
+        </div>
+        <div class="stat-item reveal delay-2">
+          <div class="stat-number">100%</div>
+          <div class="stat-label">Cumplimiento DIAN</div>
+        </div>
+        <div class="stat-item reveal delay-3">
+          <div class="stat-number">5★</div>
+          <div class="stat-label">Calificación promedio</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- INFINITE IMAGE SLIDING BANNER -->
+  <div class="marquee-banner">
+    <div class="marquee-track">
+      <div class="marquee-slide"><img src="images/outsourcing.png" alt="Outsourcing"><span>Outsourcing Contable</span></div>
+      <div class="marquee-slide"><img src="images/billing.png" alt="Facturación"><span>Facturación Electrónica</span></div>
+      <div class="marquee-slide"><img src="images/optimization.png" alt="Procesos"><span>Optimización Administrativa</span></div>
+      <div class="marquee-slide"><img src="images/constitution.png" alt="SAS"><span>Constitución de Empresas</span></div>
+      <div class="marquee-slide"><img src="images/taxes.png" alt="Renta"><span>Impuesto de Renta</span></div>
+      <div class="marquee-slide"><img src="images/dian.png" alt="DIAN"><span>Trámites Tributarios</span></div>
+      <div class="marquee-slide"><img src="images/outsourcing.png" alt="Outsourcing"><span>Outsourcing Contable</span></div>
+      <div class="marquee-slide"><img src="images/billing.png" alt="Facturación"><span>Facturación Electrónica</span></div>
+      <div class="marquee-slide"><img src="images/optimization.png" alt="Procesos"><span>Optimización Administrativa</span></div>
+      <div class="marquee-slide"><img src="images/constitution.png" alt="SAS"><span>Constitución de Empresas</span></div>
+      <div class="marquee-slide"><img src="images/taxes.png" alt="Renta"><span>Impuesto de Renta</span></div>
+      <div class="marquee-slide"><img src="images/dian.png" alt="DIAN"><span>Trámites Tributarios</span></div>
+    </div>
+  </div>
+
+  <!-- SERVICES SECTION -->
+  <section id="servicios" class="section-py">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="sub-label">Nuestros servicios</span>
+        <h2 class="section-title">Soluciones integrales para tu <em>tranquilidad financiera</em></h2>
+        <p class="section-desc">Del outsourcing contable a la revisoría fiscal, cubrimos todo lo que tu empresa necesita.</p>
+      </div>
+
+      <div class="services-tabs-container reveal">
+        <div class="services-tabs">
+          <button class="tab-btn active" data-tab="pymes">
+            <i class="fa-solid fa-building"></i> Para Empresas
+          </button>
+          <button class="tab-btn" data-tab="personas">
+            <i class="fa-solid fa-user-tie"></i> Personas Naturales
+          </button>
+        </div>
+
+        <!-- PYMES -->
+        <div class="services-panel active" id="pymes">
+          <div class="services-grid">
+            <div class="service-card reveal delay-1">
+              <div class="service-card-icon"><i class="fa-solid fa-calculator"></i></div>
+              <h3>Contabilidad General y Outsourcing Contable</h3>
+              <p>El núcleo de nuestro despacho. Externaliza toda la gestión contable bajo estándares NIIF.</p>
+              <ul class="service-bullets">
+                <li><strong>Causación y registro:</strong> Digitación y clasificación de facturas, gastos y movimientos bancarios.</li>
+                <li><strong>Conciliaciones bancarias:</strong> Cruzar saldos de extractos con registros contables.</li>
+                <li><strong>Estados Financieros:</strong> Elaboración mensual, trimestral o anual bajo NIIF.</li>
+              </ul>
+              <a href="#contacto" class="service-link">Conocer más <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+
+            <div class="service-card reveal delay-2">
+              <div class="service-card-icon"><i class="fa-solid fa-file-invoice-dollar"></i></div>
+              <h3>Gestión Tributaria (Impuestos)</h3>
+              <p>Protección y cumplimiento oportuno frente a la DIAN y las secretarías de hacienda.</p>
+              <ul class="service-bullets">
+                <li><strong>Impuestos Nacionales:</strong> IVA, Retención en la Fuente e Impuesto a la Renta.</li>
+                <li><strong>Impuestos Municipales:</strong> ICA y ReteICA ajustado a Medellín.</li>
+                <li><strong>Planeación tributaria:</strong> Estrategias legales para optimizar cargas tributarias.</li>
+              </ul>
+              <a href="#contacto" class="service-link">Conocer más <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+
+            <div class="service-card reveal delay-3">
+              <div class="service-card-icon"><i class="fa-solid fa-users-gear"></i></div>
+              <h3>Gestión de Nómina y Seguridad Social</h3>
+              <p>Administramos tu personal bajo el estricto cumplimiento de la legislación laboral colombiana.</p>
+              <ul class="service-bullets">
+                <li><strong>Liquidación de Nómina:</strong> Salarios, horas extras, recargos y deducciones de ley.</li>
+                <li><strong>Nómina Electrónica:</strong> Transmisión de XML a la plataforma DIAN.</li>
+                <li><strong>Seguridad Social (PILA):</strong> Salud, Pensión, ARL y Cajas de Compensación.</li>
+              </ul>
+              <a href="#contacto" class="service-link">Conocer más <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+
+            <div class="service-card reveal delay-1">
+              <div class="service-card-icon"><i class="fa-solid fa-shield-halved"></i></div>
+              <h3>Auditoría y Revisoría Fiscal</h3>
+              <p>Control independiente para dar fe pública sobre tus estados financieros.</p>
+              <ul class="service-bullets">
+                <li><strong>Revisoría Fiscal:</strong> Auditoría dictaminadora obligatoria para sociedades.</li>
+                <li><strong>Auditoría Externa:</strong> Evaluación de procesos administrativos y riesgos operativos.</li>
+              </ul>
+              <a href="#contacto" class="service-link">Conocer más <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+
+            <div class="service-card reveal delay-2">
+              <div class="service-card-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+              <h3>Consultoría y Asesoría Legal-Comercial</h3>
+              <p>Apoyamos a emprendedores desde la formalización y habilitación de sus negocios.</p>
+              <ul class="service-bullets">
+                <li><strong>Constitución de Empresas:</strong> Creación de S.A.S. ante Cámara de Comercio.</li>
+                <li><strong>Facturación Electrónica:</strong> Configuración y habilitación ante la DIAN.</li>
+                <li><strong>Trámites:</strong> Inscripción y actualización del RUT y RIT municipal.</li>
+              </ul>
+              <a href="#contacto" class="service-link">Conocer más <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- PERSONAS -->
+        <div class="services-panel" id="personas">
+          <div class="services-grid two-cols">
+            <div class="service-card reveal">
+              <div class="service-card-icon"><i class="fa-solid fa-user-check"></i></div>
+              <h3>Declaración de Renta Personas Naturales</h3>
+              <p>Cumple con la DIAN optimizando tus deducciones personales y exenciones de ley.</p>
+              <ul class="service-bullets">
+                <li>Cruce de reportes exógenos de terceros ante la DIAN.</li>
+                <li>Depuración de aportes voluntarios, dependientes y medicina prepagada.</li>
+                <li>Presentación a tiempo para evitar sanciones.</li>
+              </ul>
+              <a href="#contacto" class="service-link">Conocer más <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+
+            <div class="service-card reveal delay-1">
+              <div class="service-card-icon"><i class="fa-solid fa-address-card"></i></div>
+              <h3>Trámites RUT y Firma Electrónica</h3>
+              <p>Gestión completa de trámites administrativos para contribuyentes individuales.</p>
+              <ul class="service-bullets">
+                <li>Inscripción por primera vez y actualización del RUT.</li>
+                <li>Habilitación del instrumento de Firma Electrónica DIAN.</li>
+                <li>Asesoría para Régimen Simple de Tributación (RST).</li>
+              </ul>
+              <a href="#contacto" class="service-link">Conocer más <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SIMULATOR SECTION -->
+  <section id="simulador" class="section-py">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="sub-label">Herramienta Tributaria</span>
+        <h2 class="section-title">¿Debes declarar renta <em>en Colombia</em>?</h2>
+        <p class="section-desc">Responde 5 preguntas y descúbrelo en menos de 2 minutos.</p>
+      </div>
+
+      <div class="simulator-card reveal">
+        <div class="sim-stepper">
+          <div class="sim-stepper-progress" id="step-progress"></div>
+          <div class="step-node active" data-step="1">1</div>
+          <div class="step-node" data-step="2">2</div>
+          <div class="step-node" data-step="3">3</div>
+          <div class="step-node" data-step="4">4</div>
+          <div class="step-node" data-step="5">5</div>
+          <div class="step-node" data-step="6">✓</div>
+        </div>
+
+        <form id="renta-simulator-form" onsubmit="return false;">
+          <div class="sim-step-content active" data-step="1">
+            <h3 class="sim-step-title">Selecciona el año gravable a simular:</h3>
+            <div class="sim-form-group">
+              <div class="sim-year-selector">
+                <div class="sim-option-card selected" data-value="2024">
+                  <h3>2024</h3>
+                  <p>Se declara en 2025</p>
+                </div>
+                <div class="sim-option-card" data-value="2025">
+                  <h3>2025</h3>
+                  <p>Se declara en 2026</p>
+                </div>
+              </div>
+              <input type="hidden" id="tax-year" value="2024">
+            </div>
+          </div>
+
+          <div class="sim-step-content" data-step="2">
+            <h3 class="sim-step-title">¿Cuál fue tu patrimonio bruto al 31 de diciembre?</h3>
+            <div class="sim-form-group">
+              <label class="sim-label" for="patrimonio">
+                Patrimonio Bruto
+                <span>Suma del valor de todos tus bienes sin restar deudas.</span>
+              </label>
+              <div class="input-currency-wrapper">
+                <span class="currency-symbol">$</span>
+                <input type="text" id="patrimonio" class="sim-input" placeholder="0" autocomplete="off">
+              </div>
+            </div>
+          </div>
+
+          <div class="sim-step-content" data-step="3">
+            <h3 class="sim-step-title">¿Cuáles fueron tus ingresos brutos durante el año?</h3>
+            <div class="sim-form-group">
+              <label class="sim-label" for="ingresos">
+                Ingresos Brutos Totales
+                <span>Suma de salarios, honorarios, comisiones, pensiones, arrendamientos, etc.</span>
+              </label>
+              <div class="input-currency-wrapper">
+                <span class="currency-symbol">$</span>
+                <input type="text" id="ingresos" class="sim-input" placeholder="0" autocomplete="off">
+              </div>
+            </div>
+          </div>
+
+          <div class="sim-step-content" data-step="4">
+            <h3 class="sim-step-title">Monto máximo en compras o consignaciones:</h3>
+            <div class="sim-form-group">
+              <label class="sim-label" for="consumos">
+                Consumos de Tarjeta, Compras o Consignaciones
+                <span>La cifra más alta registrada en cualquiera de estos rubros durante el año.</span>
+              </label>
+              <div class="input-currency-wrapper">
+                <span class="currency-symbol">$</span>
+                <input type="text" id="consumos" class="sim-input" placeholder="0" autocomplete="off">
+              </div>
+            </div>
+          </div>
+
+          <div class="sim-step-content" data-step="5">
+            <h3 class="sim-step-title">¿Fuiste responsable del IVA ante la DIAN?</h3>
+            <div class="sim-form-group">
+              <div class="sim-radio-list">
+                <label class="radio-item" id="radio-iva-si">
+                  <input type="radio" name="iva-responsable" value="si" id="iva-si">
+                  <span class="radio-text">Sí, estuve registrado como responsable de IVA</span>
+                </label>
+                <label class="radio-item selected" id="radio-iva-no">
+                  <input type="radio" name="iva-responsable" value="no" id="iva-no" checked>
+                  <span class="radio-text">No, no pertenezco a este régimen</span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="sim-step-content" data-step="6">
+            <div class="sim-result-box">
+              <div id="result-badge" class="result-badge obligado">Calculando...</div>
+              <p class="result-explanation" id="result-explanation">Detalles del resultado.</p>
+              <table class="result-details-table">
+                <thead>
+                  <tr>
+                    <th>Criterio</th>
+                    <th>Tu reporte</th>
+                    <th>Tope DIAN</th>
+                    <th>Estado</th>
+                  </tr>
+                </thead>
+                <tbody id="result-table-body"></tbody>
+              </table>
+              <a id="whatsapp-share-btn" href="#" target="_blank" rel="noopener noreferrer" class="btn-whatsapp-result">
+                <i class="fa-brands fa-whatsapp"></i> Preparar mi Declaración por WhatsApp
+              </a>
+            </div>
+          </div>
+
+          <div class="sim-footer-nav" id="sim-navigation-bar">
+            <button type="button" class="btn-secondary" id="prev-step" style="opacity:0;pointer-events:none;">
+              <i class="fa-solid fa-arrow-left"></i> Atrás
+            </button>
+            <button type="button" class="btn-primary" id="next-step">
+              Siguiente <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY US / NOSOTROS -->
+  <section id="nosotros">
+    <div class="container">
+      <div class="why-grid">
+        <div class="why-content reveal-left">
+          <span class="sub-label">¿Por qué elegirnos?</span>
+          <h2 class="why-title">Tu tranquilidad, <em>nuestra prioridad</em></h2>
+          <p class="why-desc">Más que un servicio contable, somos tu aliado estratégico para el crecimiento y sostenibilidad de tu negocio en Colombia.</p>
+          <ul class="why-checklist">
+            <li><i class="fa-solid fa-check"></i> Atención personalizada y cercana</li>
+            <li><i class="fa-solid fa-check"></i> Respuesta rápida y eficaz</li>
+            <li><i class="fa-solid fa-check"></i> Experiencia en normatividad tributaria colombiana</li>
+            <li><i class="fa-solid fa-check"></i> Acompañamiento permanente durante todo el año</li>
+            <li><i class="fa-solid fa-check"></i> Soluciones adaptadas a cada cliente</li>
+          </ul>
+        </div>
+        <div class="why-image-block reveal-right">
+          <img src="images/constitution.png" alt="Profesionales Sicontri en reunión de asesoría">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="section-testimonials section-py">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="sub-label">Testimonios</span>
+        <h2 class="section-title">Lo que dicen <em>nuestros clientes</em></h2>
+      </div>
+
+      <div class="testimonials-grid">
+        <div class="testimonial-card reveal delay-1">
+          <div class="quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+          <div class="stars">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <p class="testimonial-text">"Gracias a Sicontri optimizamos nuestros procesos contables y tributarios. Su acompañamiento ha sido clave para el crecimiento de nuestra empresa."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar"><span class="avatar-fallback">CM</span></div>
+            <div class="author-info"><h4>Carlos M.</h4><p>Gerente General</p></div>
+          </div>
+        </div>
+
+        <div class="testimonial-card reveal delay-2">
+          <div class="quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+          <div class="stars">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <p class="testimonial-text">"Excelente asesoría durante todo el año. Siempre atentos a nuestras dudas y necesidades. Los recomiendo sin reservas."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar"><span class="avatar-fallback">LG</span></div>
+            <div class="author-info"><h4>Laura G.</h4><p>Emprendedora</p></div>
+          </div>
+        </div>
+
+        <div class="testimonial-card reveal delay-3">
+          <div class="quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+          <div class="stars">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <p class="testimonial-text">"Profesionales, confiables y muy responsables. Los recomiendo al 100% para outsourcing contable y asesoramiento tributario."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar"><span class="avatar-fallback">AR</span></div>
+            <div class="author-info"><h4>Andrés R.</h4><p>Administrador</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOG -->
+  <section id="blog" class="section-py">
+    <div class="container">
+      <div class="blog-section-header reveal">
+        <div>
+          <span class="sub-label">Blog Tributario</span>
+          <h2 class="section-title">Información que te <em>ayuda a crecer</em></h2>
+        </div>
+        <a href="#blog" class="btn-view-all">Ver todos los artículos <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+
+      <div class="blog-grid">
+        <div class="blog-card reveal delay-1" data-post-id="renta2024">
+          <div class="blog-card-image"><img src="images/dian.png" alt="Calendario declaración renta"></div>
+          <div class="blog-card-body">
+            <span class="blog-date">15 Mayo, 2024</span>
+            <h3>Fechas importantes para la declaración de renta 2024</h3>
+            <a href="javascript:void(0);" class="blog-read-more btn-read-post">Leer artículo <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <div class="blog-card reveal delay-2" data-post-id="cambios2024">
+          <div class="blog-card-image"><img src="images/optimization.png" alt="Cambios tributarios"></div>
+          <div class="blog-card-body">
+            <span class="blog-date">22 Abril, 2024</span>
+            <h3>Cambios tributarios que debes conocer en 2024</h3>
+            <a href="javascript:void(0);" class="blog-read-more btn-read-post">Leer artículo <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <div class="blog-card reveal delay-3" data-post-id="facturacion">
+          <div class="blog-card-image"><img src="images/billing.png" alt="Facturación electrónica"></div>
+          <div class="blog-card-body">
+            <span class="blog-date">10 Abril, 2024</span>
+            <h3>Beneficios de implementar facturación electrónica</h3>
+            <a href="javascript:void(0);" class="blog-read-more btn-read-post">Leer artículo <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <div class="blog-card reveal delay-4" data-post-id="errores">
+          <div class="blog-card-image"><img src="images/taxes.png" alt="Errores declaración renta"></div>
+          <div class="blog-card-body">
+            <span class="blog-date">02 Abril, 2024</span>
+            <h3>Errores frecuentes en la declaración de renta</h3>
+            <a href="javascript:void(0);" class="blog-read-more btn-read-post">Leer artículo <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOG MODAL -->
+  <div class="blog-modal" id="blog-modal">
+    <div class="blog-modal-content">
+      <button class="blog-modal-close" id="blog-modal-close" aria-label="Cerrar artículo"><i class="fa-solid fa-xmark"></i></button>
+      <div class="blog-modal-body" id="blog-modal-body"></div>
+    </div>
+  </div>
+
+  <!-- CONTACT -->
+  <section id="contacto">
+    <div class="container">
+      <div class="contact-grid">
+
+        <!-- Left: info -->
+        <div class="contact-details reveal-left">
+          <span class="sub-label">Contacto</span>
+          <h2 class="contact-title">Estamos para <em>ayudarte</em></h2>
+          <ul class="contact-info-list">
+            <li><i class="fa-solid fa-phone"></i> +57 300 123 4567</li>
+            <li><i class="fa-solid fa-envelope"></i> contacto@sicontri.com</li>
+            <li><i class="fa-solid fa-location-dot"></i> El Poblado, Medellín, Colombia</li>
+            <li><i class="fa-solid fa-globe"></i> www.sicontri.com</li>
+          </ul>
+        </div>
+
+        <!-- Center: form -->
+        <div class="contact-form-card reveal">
+          <h3>Envíanos tu consulta</h3>
+          <form id="contact-form" onsubmit="return false;">
+            <div class="form-row">
+              <input type="text" id="contact-name" class="form-input" required placeholder="Nombre completo*">
+              <input type="text" id="contact-company" class="form-input" placeholder="Empresa">
+            </div>
+            <div class="form-row">
+              <input type="tel" id="contact-phone" class="form-input" required placeholder="Teléfono*">
+              <input type="email" id="contact-email" class="form-input" required placeholder="Correo electrónico*">
+            </div>
+            <div class="form-row full">
+              <select id="contact-service" class="form-input" required>
+                <option value="" disabled selected>Servicio de interés*</option>
+                <option value="Outsourcing Contable">Contabilidad General y Outsourcing Contable</option>
+                <option value="Gestión Tributaria">Gestión Tributaria (Impuestos)</option>
+                <option value="Nómina y Seguridad Social">Gestión de Nómina y Seguridad Social</option>
+                <option value="Auditoría y Revisoría Fiscal">Auditoría y Revisoría Fiscal</option>
+                <option value="Asesoría Legal-Comercial">Consultoría y Asesoría Legal-Comercial</option>
+              </select>
+            </div>
+            <div class="form-row full">
+              <textarea id="contact-message" class="form-input" required placeholder="Cuéntanos sobre tu negocio y cómo podemos ayudarte..."></textarea>
+            </div>
+            <button type="submit" class="btn-submit">
+              Enviar mensaje <i class="fa-solid fa-paper-plane"></i>
+            </button>
+          </form>
+        </div>
+
+        <!-- Right: WhatsApp -->
+        <div class="contact-wa-card reveal-right">
+          <div class="wa-icon-lg"><i class="fa-brands fa-whatsapp"></i></div>
+          <h3>¿Prefieres WhatsApp?</h3>
+          <p>Escríbenos directamente y recibe atención inmediata sin esperar.</p>
+          <a href="https://wa.me/573001234567?text=Hola%20Sicontri,%20necesito%20atenci%C3%B3n%20inmediata." target="_blank" rel="noopener noreferrer" class="btn-wa-action">
+            <i class="fa-brands fa-whatsapp"></i> Escribir por WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TOAST -->
+  <div class="toast-msg" id="toast-message">
+    <i class="fa-solid fa-circle-check"></i> ¡Mensaje enviado con éxito! Nos contactaremos pronto.
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <img src="logo-white.svg" alt="Sicontri Logo" style="height:50px;margin-bottom:.75rem;">
+        <p>Acompañamos a empresas y personas naturales en sus decisiones contables y tributarias con profesionalismo, confianza y compromiso.</p>
+      </div>
+      <div>
+        <h4 class="footer-title">Navegación</h4>
+        <ul class="footer-links">
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#nosotros">Nosotros</a></li>
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#blog">Blog</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-title">Servicios</h4>
+        <ul class="footer-links">
+          <li><a href="#servicios">Outsourcing Contable</a></li>
+          <li><a href="#servicios">Gestión Tributaria</a></li>
+          <li><a href="#servicios">Nómina y Seguridad Social</a></li>
+          <li><a href="#servicios">Revisoría Fiscal</a></li>
+          <li><a href="#servicios">Asesoría Legal-Comercial</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-title">Síguenos</h4>
+        <div class="footer-socials">
+          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>&copy; 2026 Sicontri. Todos los derechos reservados.</p>
+      <div class="footer-bottom-links">
+        <a href="#privacy">Política de privacidad</a>
+        <a href="#terms">Términos y condiciones</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- STICKY WHATSAPP -->
+  <a href="https://wa.me/573001234567?text=Hola%20Sicontri,%20necesito%20informaci%C3%B3n%20sobre%20sus%20servicios%20contables." target="_blank" rel="noopener noreferrer" class="whatsapp-sticky" aria-label="Contacto por WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <script>
+    // ============================================
+    // SCROLL REVEAL
+    // ============================================
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          revealObserver.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => revealObserver.observe(el));
+
+    // ============================================
+    // HEADER SCROLL EFFECT
+    // ============================================
+    const header = document.getElementById('main-header');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    // ============================================
+    // ACTIVE NAV LINK ON SCROLL
+    // ============================================
+    const sections = document.querySelectorAll('section[id], div[id="inicio"]');
+    const navLinks = document.querySelectorAll('.nav-link');
+    const scrollSpy = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          navLinks.forEach(l => l.classList.remove('active'));
+          const link = document.querySelector(`.nav-link[href="#${e.target.id}"]`);
+          if (link) link.classList.add('active');
+        }
+      });
+    }, { threshold: 0.4 });
+    document.querySelectorAll('section[id]').forEach(s => scrollSpy.observe(s));
+
+    // ============================================
+    // MOBILE MENU
+    // ============================================
+    const menuToggle = document.getElementById('menu-toggle');
+    const navMenu = document.getElementById('nav-menu');
+    menuToggle.addEventListener('click', () => {
+      navMenu.classList.toggle('open');
+      menuToggle.querySelector('i').className = navMenu.classList.contains('open')
+        ? 'fa-solid fa-xmark'
+        : 'fa-solid fa-bars-staggered';
+    });
+    navMenu.querySelectorAll('.nav-link').forEach(l => {
+      l.addEventListener('click', () => {
+        navMenu.classList.remove('open');
+        menuToggle.querySelector('i').className = 'fa-solid fa-bars-staggered';
+      });
+    });
+
+    // ============================================
+    // HERO SLIDESHOW
+    // ============================================
+    const slides = document.querySelectorAll('.hero-slide');
+    let current = 0;
+    setInterval(() => {
+      slides[current].classList.remove('active');
+      current = (current + 1) % slides.length;
+      slides[current].classList.add('active');
+    }, 3500);
+
+    // ============================================
+    // SERVICES TABS
+    // ============================================
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.services-panel').forEach(p => p.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById(btn.dataset.tab).classList.add('active');
+      });
+    });
+
+    // ============================================
+    // SIMULATOR
+    // ============================================
+    const TOPES = {
+      2024: { patrimonio: 171_018_000, ingresos: 59_377_000, consumos: 59_377_000 },
+      2025: { patrimonio: 192_100_000, ingresos: 68_044_000, consumos: 68_044_000 }
+    };
+
+    let currentStep = 1;
+    const totalSteps = 6;
+
+    function formatCOP(n) {
+      return new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP', maximumFractionDigits: 0 }).format(n);
+    }
+    function parseCOP(str) {
+      return parseFloat(str.replace(/[^0-9.]/g, '')) || 0;
+    }
+
+    // Format inputs while typing
+    ['patrimonio', 'ingresos', 'consumos'].forEach(id => {
+      const el = document.getElementById(id);
+      el.addEventListener('input', () => {
+        const raw = parseCOP(el.value);
+        if (raw) el.value = raw.toLocaleString('es-CO');
+      });
+    });
+
+    // Year selector
+    document.querySelectorAll('.sim-option-card').forEach(card => {
+      card.addEventListener('click', () => {
+        document.querySelectorAll('.sim-option-card').forEach(c => c.classList.remove('selected'));
+        card.classList.add('selected');
+        document.getElementById('tax-year').value = card.dataset.value;
+      });
+    });
+
+    // Radio IVA
+    document.querySelectorAll('.radio-item').forEach(item => {
+      item.addEventListener('click', () => {
+        document.querySelectorAll('.radio-item').forEach(i => i.classList.remove('selected'));
+        item.classList.add('selected');
+        item.querySelector('input[type="radio"]').checked = true;
+      });
+    });
+
+    function updateStepper() {
+      const nodes = document.querySelectorAll('.step-node');
+      nodes.forEach((node, i) => {
+        node.classList.remove('active', 'done');
+        if (i + 1 < currentStep) node.classList.add('done');
+        if (i + 1 === currentStep) node.classList.add('active');
+      });
+      const progress = document.getElementById('step-progress');
+      const pct = ((currentStep - 1) / (totalSteps - 1)) * 100;
+      progress.style.width = pct + '%';
+
+      const prevBtn = document.getElementById('prev-step');
+      const nextBtn = document.getElementById('next-step');
+      prevBtn.style.opacity = currentStep === 1 ? '0' : '1';
+      prevBtn.style.pointerEvents = currentStep === 1 ? 'none' : 'auto';
+
+      if (currentStep === totalSteps) {
+        document.getElementById('sim-navigation-bar').style.display = 'none';
+      } else {
+        document.getElementById('sim-navigation-bar').style.display = 'flex';
+        nextBtn.innerHTML = currentStep === totalSteps - 1
+          ? 'Ver resultado <i class="fa-solid fa-chart-bar"></i>'
+          : 'Siguiente <i class="fa-solid fa-arrow-right"></i>';
+      }
+    }
+
+    function goToStep(n) {
+      document.querySelector(`.sim-step-content[data-step="${currentStep}"]`).classList.remove('active');
+      currentStep = n;
+      document.querySelector(`.sim-step-content[data-step="${currentStep}"]`).classList.add('active');
+      updateStepper();
+      if (currentStep === totalSteps) calculateResult();
+    }
+
+    document.getElementById('next-step').addEventListener('click', () => {
+      if (currentStep < totalSteps) goToStep(currentStep + 1);
+    });
+    document.getElementById('prev-step').addEventListener('click', () => {
+      if (currentStep > 1) goToStep(currentStep - 1);
+    });
+
+    function calculateResult() {
+      const year = parseInt(document.getElementById('tax-year').value);
+      const patrimonio = parseCOP(document.getElementById('patrimonio').value);
+      const ingresos = parseCOP(document.getElementById('ingresos').value);
+      const consumos = parseCOP(document.getElementById('consumos').value);
+      const ivaResponsable = document.querySelector('input[name="iva-responsable"]:checked').value === 'si';
+
+      const topes = TOPES[year] || TOPES[2024];
+      const criterios = [
+        { label: 'Patrimonio Bruto', valor: patrimonio, tope: topes.patrimonio, superado: patrimonio > topes.patrimonio },
+        { label: 'Ingresos Brutos', valor: ingresos, tope: topes.ingresos, superado: ingresos > topes.ingresos },
+        { label: 'Consumos / Compras', valor: consumos, tope: topes.consumos, superado: consumos > topes.consumos },
+        { label: 'Responsable de IVA', valor: ivaResponsable ? 'Sí' : 'No', tope: 'No aplica', superado: ivaResponsable }
+      ];
+
+      const obligado = criterios.some(c => c.superado);
+
+      const badge = document.getElementById('result-badge');
+      badge.className = 'result-badge ' + (obligado ? 'obligado' : 'no-obligado');
+      badge.innerHTML = obligado
+        ? '<i class="fa-solid fa-triangle-exclamation"></i> Estás obligado a declarar'
+        : '<i class="fa-solid fa-circle-check"></i> No estás obligado a declarar';
+
+      document.getElementById('result-explanation').textContent = obligado
+        ? `Para el año gravable ${year}, superaste al menos uno de los topes exigidos por la DIAN. Te recomendamos presentar tu declaración con apoyo profesional para evitar sanciones.`
+        : `Para el año gravable ${year}, ninguno de tus reportes supera los topes de la DIAN. Sin embargo, si tuviste retenciones a favor, declarar podría ser ventajoso.`;
+
+      const tbody = document.getElementById('result-table-body');
+      tbody.innerHTML = criterios.map(c => `
+        <tr>
+          <td>${c.label}</td>
+          <td>${typeof c.valor === 'number' ? formatCOP(c.valor) : c.valor}</td>
+          <td>${typeof c.tope === 'number' ? formatCOP(c.tope) : c.tope}</td>
+          <td>${c.superado ? '<span class="badge-fail">⚠ Superado</span>' : '<span class="badge-ok">✓ Dentro</span>'}</td>
+        </tr>
+      `).join('');
+
+      const msg = `Hola Sicontri, realicé el simulador de declaración de renta para el año gravable ${year}. El resultado fue: ${obligado ? 'OBLIGADO a declarar' : 'No obligado'}. Quiero asesoría para continuar.`;
+      document.getElementById('whatsapp-share-btn').href = `https://wa.me/573001234567?text=${encodeURIComponent(msg)}`;
+    }
+
+    // ============================================
+    // BLOG MODAL
+    // ============================================
+    const blogContent = {
+      renta2024: { title: 'Fechas importantes para la declaración de renta 2024', body: '<p>La DIAN establece fechas específicas para la presentación de la declaración de renta según los últimos dígitos del NIT. El incumplimiento genera sanciones equivalentes al 5% del impuesto a cargo por cada mes de retraso.</p><p>Te recomendamos organizar tus documentos con anticipación y contar con asesoría profesional para evitar errores que puedan resultar costosos.</p>' },
+      cambios2024: { title: 'Cambios tributarios que debes conocer en 2024', body: '<p>Para el año gravable 2024 se mantienen varios cambios introducidos por la reforma tributaria de 2022, incluyendo nuevas tarifas del impuesto de renta para personas jurídicas y ajustes en los límites de retención en la fuente.</p>' },
+      facturacion: { title: 'Beneficios de implementar facturación electrónica', body: '<p>La facturación electrónica exigida por la DIAN no solo es un cumplimiento legal: reduce errores, agiliza cobros y mejora el control de inventarios. Sicontri te ayuda a configurar y habilitar tu software de facturación de manera correcta.</p>' },
+      errores: { title: 'Errores frecuentes en la declaración de renta', body: '<p>Los errores más comunes incluyen: no reportar todos los ingresos, olvidar deducir aportes voluntarios a pensiones, no cruzar la información con terceros reportados a la DIAN, y presentar fuera de los plazos establecidos.</p>' }
+    };
+
+    document.querySelectorAll('.btn-read-post').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const postId = btn.closest('[data-post-id]').dataset.postId;
+        const post = blogContent[postId];
+        if (!post) return;
+        document.getElementById('blog-modal-body').innerHTML = `<h2 style="font-family:var(--font-display);font-size:1.5rem;font-weight:800;color:var(--text-dark);margin-bottom:1rem;">${post.title}</h2>${post.body}`;
+        document.getElementById('blog-modal').classList.add('open');
+      });
+    });
+
+    document.getElementById('blog-modal-close').addEventListener('click', () => {
+      document.getElementById('blog-modal').classList.remove('open');
+    });
+    document.getElementById('blog-modal').addEventListener('click', (e) => {
+      if (e.target === e.currentTarget) e.currentTarget.classList.remove('open');
+    });
+
+    // ============================================
+    // CONTACT FORM
+    // ============================================
+    document.getElementById('contact-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const toast = document.getElementById('toast-message');
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 4000);
+      e.target.reset();
+    });
+
+    // ============================================
+    // COUNTER ANIMATION (Stats Band)
+    // ============================================
+    const counters = document.querySelectorAll('.stat-number[data-target]');
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        const target = parseInt(el.dataset.target);
+        const suffix = el.textContent.replace(/[0-9]/g, '');
+        let start = 0;
+        const step = Math.ceil(target / 40);
+        const timer = setInterval(() => {
+          start = Math.min(start + step, target);
+          el.textContent = start + suffix;
+          if (start >= target) clearInterval(timer);
+        }, 40);
+        counterObserver.unobserve(el);
+      });
+    }, { threshold: .5 });
+    counters.forEach(c => counterObserver.observe(c));
+  </script>
+</body>
+</html>

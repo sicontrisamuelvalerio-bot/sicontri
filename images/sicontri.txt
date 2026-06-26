@@ -1,0 +1,10 @@
+sicontri/
+├── index.html        ← el que descargaste aquí
+├── logo.png          ← el logo que descargaste aquí
+└── images/
+    ├── outsourcing.png
+    ├── billing.png
+    ├── optimization.png
+    ├── constitution.png
+    ├── taxes.png
+    └── dian.png
